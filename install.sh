@@ -23,7 +23,10 @@ esac; done
 CLAUDE_DIR="${CLAUDE_CONFIG_DIR:-$HOME/.claude}"
 SKILLS_DIR="$CLAUDE_DIR/skills"
 SETTINGS="$CLAUDE_DIR/settings.json"
-SRC="$(cd "$(dirname "${BASH_SOURCE[0]:-$0}")" 2>/dev/null && pwd || echo /nonexistent)"
+set +u   # bash 3.2 trips on an unset array subscript even with :-
+SELF="${BASH_SOURCE[0]}"; [ -n "$SELF" ] || SELF="$0"
+set -u
+SRC="$(cd "$(dirname "$SELF")" 2>/dev/null && pwd || echo /nonexistent)"
 ok()   { printf '  \033[32m✓\033[0m %s\n'  "$1"; }
 warn() { printf '  \033[33m!\033[0m %s\n'  "$1"; }
 step() { printf '\n\033[1m%s\033[0m\n'     "$1"; }
