@@ -49,7 +49,17 @@ browser measurement, and documentation.
 64 agents / 84 commands), `vercel`, `ponytail`, `document-skills`, `gsap-skills`,
 `obsidian`, `genjutsu`.
 
-Full breakdown, versions, MCP servers and optional config: **[pryne-skills.md](./pryne-skills.md)**.
+## Handing this to Claude
+
+`pryne-skills.md` is written as an **executable runbook** — point Claude at it and it will do
+the install itself, including the two steps `install.sh` can't cover (MCP servers, and
+neutralizing the repo-specific `verify.sh` scripts). Every command in it is real and
+copy-paste-ready; it ends with a self-check and tells Claude what to report back.
+
+> Read pryne-skills.md in this repo and set it up on my machine.
+
+Full breakdown of versions, sources and config also lives there:
+**[pryne-skills.md](./pryne-skills.md)**.
 
 ## Two caveats worth reading
 
